@@ -49,7 +49,7 @@ const productSchema =  mongoose.Schema(
                 },
                 date: {
                     type: Date,
-                    default: Text,
+                    default: Date.now, // after fix -> default: Date.now
                 },
             },
         ],
@@ -59,4 +59,5 @@ const productSchema =  mongoose.Schema(
         },
     }, { timestamps: false});
 
-module.exports = mongoose.mongoose("product", productSchema)
+// after fix -> Corrected module.exports
+module.exports = mongoose.model("product", productSchema)

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const customerSchema = mongoose.Schema({
     name: {
@@ -9,7 +9,6 @@ const customerSchema = mongoose.Schema({
         type: String,
         unique: true,
         required: true,
-
     },
     password: {
         type: String,
@@ -79,4 +78,5 @@ const customerSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("customer", customerSchema)
+// after fix -> Check if the model already exists before defining it
+module.exports = mongoose.models.customer || mongoose.model("customer", customerSchema);
